@@ -1,7 +1,8 @@
 import random
 import time
 import socket
-import string
+import uuid
+
 
 HOST = "145.223.27.42"  # IP da VPS
 PORT = 8015
@@ -36,10 +37,6 @@ def create_random_user():
     battery = random.randint(70, 100)
     
     return User(name, car_model, economy, battery)
-
-def create_random_pix():
-    pixs = ''.join(random.choices(string.ascii_letters + string.digits, k=32))
-    return pixs
 
 
 def show_menu(user):
@@ -98,7 +95,7 @@ def main():
         elif choice == "7":
             valor = input("Qual foi o valor?: ")
             print("gerando pix")
-            pix = create_random_pix()
+            pix = str(uuid.uuid4())
             print(pix)
             break
         elif choice == "0":
